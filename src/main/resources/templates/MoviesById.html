@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Best of the Year - Movies ID</title>
+    </head>
+
+    <body>
+        <h1>Ricerca Film</h1>
+
+        <div th:if="${movie != null}">
+            <p th:text="${movie}"/>
+        </div>
+        <div th:if="${movie == null}">
+            <p>Film non trovato!</p>
+        </div>
+    </body>
+
+</html>
