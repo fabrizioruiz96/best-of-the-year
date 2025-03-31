@@ -20,15 +20,15 @@ public class HomeController {
     // Route per la home page
     @GetMapping
     public String bestOfTheYear(@RequestParam(name = "name") String name,
-                        @RequestParam(name = "surname") String surname,
-                        Model model) {
+            @RequestParam(name = "surname") String surname,
+            Model model) {
 
         model.addAttribute("name", name);
         model.addAttribute("surname", surname);
 
-        return "BestOfTheYear"; 
+        return "BestOfTheYear";
     }
- 
+
     private List<Movie> getBestMovies() {
         List<Movie> movies = new ArrayList<>();
         movies.add(new Movie(1, "Interstellar", 2014));
@@ -44,61 +44,72 @@ public class HomeController {
         songs.add(new Song(3, "L'angelo caduto", 2021));
         return songs;
     }
-    
+
     // Route per ricevere la lista di film
     @GetMapping("/movies")
     public String getMovies(Model model) {
 
+        // List<Movie> movies = getBestMovies();
+        // String moviesString = "";
+
+        // for (Movie m : movies) {
+        // moviesString += m.getTitle() + ", ";
+        // }
+
+        // moviesString = moviesString.substring(0, moviesString.length() - 2);
+        // model.addAttribute("movies", moviesString);
+
+        // return "Movies";
+
         List<Movie> movies = getBestMovies();
-        String moviesString = "";
 
-        for (Movie m : movies) {
-            moviesString += m.getTitle() + ", ";
-        }
+        model.addAttribute("movies", movies);
 
-        moviesString = moviesString.substring(0, moviesString.length() - 2);
-        model.addAttribute("movies", moviesString);
-
-        return "movies";
+        return "Movies";
     }
-
 
     // Route per la ricerca di un film tramite id
     @GetMapping("/movies/{id}")
     public String moviesId(@PathVariable("id") int id, Model model) {
-        
+
         List<Movie> movies = getBestMovies();
 
         for (Movie m : movies) {
             if (m.getId() == id) {
                 model.addAttribute("movie", m.getTitle());
                 break;
-            } 
+            }
         }
 
         return "MoviesById";
     }
-    
+
     // Route per ricevere la lista di canzoni
     @GetMapping("/songs")
     public String getSongs(Model model) {
-        
+
+        // List<Song> songs = getBestSongs();
+        // String songsString = "";
+
+        // for (Song s : songs) {
+        // songsString += s.getTitle() + ", ";
+        // }
+
+        // songsString = songsString.substring(0, songsString.length() - 2);
+        // model.addAttribute("songs", songsString);
+
+        // return "Songs";
+
         List<Song> songs = getBestSongs();
-        String songsString = "";
 
-        for (Song s : songs) {
-            songsString += s.getTitle() + ", ";
-        }
+        model.addAttribute("songs", songs);
 
-        songsString = songsString.substring(0, songsString.length() - 2);
-        model.addAttribute("songs", songsString);
-
-        return "songs";
+        return "Songs";
     }
-    
+
     // Route per la ricerca di una canzone tramite id
-    @GetMapping("/songs/{id}") 
-    public String songsId(@PathVariable("id") int id, Model model){
+    @GetMapping("/songs/{id}")
+    public String songsId(@PathVariable("id") int id, Model model) {
 
         List<Song> songs = getBestSongs();
 
