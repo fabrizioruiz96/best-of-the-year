@@ -5,13 +5,15 @@ public class Song {
     private int id;
     private String title;
     private int releaseYear;
+    private String singer;
 
-    public Song(int id, String title, int releaseYear) {
+    public Song(int id, String title, int releaseYear, String singer) {
         this.id = id;
         this.title = title;
         this.releaseYear = releaseYear;
+        this.singer = singer;
     }
-    
+
     public int getId() {
         return id;
     }
@@ -36,9 +38,17 @@ public class Song {
         this.releaseYear = releaseYear;
     }
 
+    public String getSinger() {
+        return singer;
+    }
+
+    public void setSinger(String singer) {
+        this.singer = singer;
+    }
+
     @Override
     public String toString() {
-        return id + " - " + title + " - " + releaseYear;
+        return id + " - " + title + " - " + releaseYear + " - " + singer;
     }
 
 }

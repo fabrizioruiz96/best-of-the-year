@@ -11,19 +11,35 @@
 
 <body>
 
-    <nav th:replace="fragments :: navbar"></nav>
-
-    <h1>Migliori Canzoni</h1>
-
+    <!-- ESERCIZIO STEP 1 -->
+    <!-- <h1>Migliori Canzoni</h1> -->
     <!-- <p th:text="${songs}"/> -->
 
-    <div>
-        <ul>
-            <li th:each="s : ${songs}">
-                <a th:href="@{/songs/{id}(id=${s.getId()})}" th:text="${s.getTitle()}"></a>
-            </li>
-        </ul>
-    </div>
+    <!-- ESERCIZIO STEP 2 -->
+    <!-- NAVBAR -->
+    <nav th:replace="fragments :: navbar"></nav>
+    <!-- SEZIONE TITOLO -->
+    <main class="container mt-5 text-center">
+        <div class="row justify-content-center">
+            <div class="col-12 mt-5">
+                <h1>Best Songs</h1>
+            </div>
+            <!-- SEZIONE TABELLA -->
+            <div class="col-6 mt-5">
+                <table class="table">
+                    <tbody>
+                        <tr th:each="s : ${songs}">
+                            <td>
+                                <a th:href="@{/songs/{id}(id=${s.getId()})}" th:text="${s.getTitle()}"></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

@@ -10,10 +10,28 @@
 </head>
 
 <body>
-
+    <!-- NAVBAR -->
     <nav th:replace="fragments :: navbar"></nav>
-
-    <h1>Best of the Year by <span th:text="${name} + ' ' + ${surname}" /></h1>
+    <!-- SEZIONE TITOLO -->
+    <main class="container mt-5 text-center">
+        <div class="row">
+            <div class="col-12 mt-5">
+                <h1>Best of the Year by <span th:text="${name} + ' ' + ${surname}" /></h1>
+            </div>
+            <!-- SEZIONE CARD -->
+            <div class="col-12 d-flex justify-content-center mt-5">
+                <div class="card" style="width: 600px">
+                    <img src="" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Lorem Ipsum</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nam quos
+                            quam, labore, maiores eaque eveniet delectus vel, eum voluptatum iste aspernatur consectetur
+                            id officiis est illo veniam quas numquam!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
