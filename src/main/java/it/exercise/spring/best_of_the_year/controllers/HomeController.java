@@ -26,7 +26,7 @@ public class HomeController {
         model.addAttribute("name", name);
         model.addAttribute("surname", surname);
 
-        return "BestOfTheYear";
+        return "/BestOfTheYear";
     }
 
     private List<Movie> getBestMovies() {
